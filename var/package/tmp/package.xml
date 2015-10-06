@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<package>
+    <name>PedroTeixeira_Correios</name>
+    <version>4.5.0</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/mit-license.php">MIT License</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>M&#xF3;dulo de c&#xE1;lculo de PAC, Sedex, E-Sedex, Sedex 10, Sedex Hoje, Sedex a Cobrar, PAC GF e Carta Comercial.</summary>
+    <description>Utilizando peso volum&#xE9;trico para c&#xE1;lculo de todos os servi&#xE7;os e compat&#xED;vel com a valida&#xE7;&#xE3;o de dimens&#xF5;es dos Correios.&#xD;
+&#xD;
+Servi&#xE7;os suportados:&#xD;
+&#xD;
+- Sedex Sem Contrato&#xD;
+- Sedex Com Contrato&#xD;
+- E-Sedex Com Contrato&#xD;
+- PAC Sem Contrato&#xD;
+- PAC Com Contrato&#xD;
+- Sedex 10&#xD;
+- Sedex HOJE&#xD;
+- Sedex a Cobrar&#xD;
+- PAC GF&#xD;
+- Carta Comercial&#xD;
+- Carta Comercial Registrada&#xD;
+&#xD;
+Conta com identifica&#xE7;&#xE3;o de erros dos Correios, m&#xE3;o pr&#xF3;pria, aviso de recebimento, valor declarado, captura do prazo de entrega dos Correios, adicionar mais dias ao prazo dos Correios, identifica o volume dos produtos por atributo, tracking em tempo real, cache, pacotes de grandes formato e produtos encaixados.&#xD;
+&#xD;
+Mais informa&#xE7;&#xF5;es em https://pedroteixeira.io.</description>
+    <notes>Bugfix:&#xD;
+&#xD;
+- Corre&#xE7;&#xE3;o de prazo para mapeamentos recentes dos Correios&#xD;
+- Corrige exce&#xE7;&#xE3;o no caso de falha na comunica&#xE7;&#xE3;o com os Correios&#xD;
+&#xD;
+Feature:&#xD;
+&#xD;
+- Adiciona suporte a Perfil Recorrente (Recurring Profile)&#xD;
+- Licen&#xE7;a utilizada vis&#xED;vel na documenta&#xE7;&#xE3;o&#xD;
+- Atualiza&#xE7;&#xE3;o dos pre&#xE7;os da carta comercial e carta comercial registrada&#xD;
+- Adiciona mensagem especial para CEPs com &#xE1;rea de risco&#xD;
+- Adiciona explica&#xE7;&#xE3;o de novos campos no README&#xD;
+- Adiciona informa&#xE7;&#xE3;o sobre compila&#xE7;&#xE3;o no README&#xD;
+- Possibilidade de acrescentar dias nos prazos dos Correios por produto</notes>
+    <authors><author><name>Pedro Teixeira</name><user>teixeirapedro</user><email>hello@pedroteixeira.io</email></author></authors>
+    <date>2015-07-13</date>
+    <time>09:08:57</time>
+    <contents><target name="magecommunity"><dir name="PedroTeixeira"><dir name="Correios"><dir name="Helper"><file name="Data.php" hash="a030f07c60af40e9817054800096207f"/></dir><dir name="Model"><file name="Cache.php" hash="63903ef57e86e2be3cd79787063f3946"/><dir name="Carrier"><file name="CorreiosMethod.php" hash="aedcce35a9b2a2b633ae2828681072a3"/></dir><dir name="Http"><dir name="Client"><dir name="Adapter"><file name="Socket.php" hash="76da85f117c3f9950164a5d90500d82f"/></dir></dir></dir><dir name="Source"><file name="CacheMode.php" hash="b34ae611b8bf913e4b646f4a156cc2a4"/><file name="PostMethods.php" hash="b251451bf944b1488c477d58c4c8985d"/><file name="WeightType.php" hash="4bf1608fb6b665dcc7d834ca35eee174"/></dir></dir><dir name="etc"><file name="config.xml" hash="03105f699463cf7df28eafb89a9bddf4"/><file name="system.xml" hash="a176657e9f5565ef20d101059cca833c"/></dir><dir name="sql"><dir name="pedroteixeira_correios_setup"><file name="install-4.0.0.php" hash="eda109c002d9130fc1ce807784aa60a3"/><file name="install-4.4.0.php" hash="889c7376ee7bdd30bf07616b4f365e3b"/><file name="install-4.5.0.php" hash="e0daaac3649b166a33928da3844ad965"/><file name="upgrade-4.0.0-4.1.0.php" hash="ca42fdabb0975f60d8cf5ef5ab122acd"/><file name="upgrade-4.1.0-4.2.0.php" hash="319cd1c4ddaa745da9af4a5111aa1534"/><file name="upgrade-4.2.0-4.3.0.php" hash="783e854d19b0e4915360cc1ec8b4d2d0"/><file name="upgrade-4.3.0-4.4.0.php" hash="982f41d3a113d21c4008de7e63918e45"/><file name="upgrade-4.4.0-4.5.0.php" hash="95dfd40fa6469a711b4b65a331f0b1b7"/></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="PedroTeixeira_Correios.xml" hash="e714579bed97c85f2bcc3988dec271da"/></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php><package><name/><channel>connect.magentocommerce.com/core</channel><min/><max/></package></required></dependencies>
+</package>
