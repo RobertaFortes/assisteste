@@ -1,0 +1,13 @@
+.icon,
+.brand-logo, 
+.inner_links .link_address:before, 
+#back-top a:before,
+.qty-increase
+.qty-ctl .decrease, 
+.qty-ctl .increase{background: url(../images/icons-style2.png)  0px 0px no-repeat;} 
+.header-container .toolbar-switch .toolbar-dropdown{background: url(../images/arrow-dropdown.png) no-repeat right 11px;}
+.em-promotion-banner li:before, .area05-features div div h3:before, .form-search button.button span span, .block-cart-top .block-content .block-title a:before, .qty-increase button, .qty-decrease button, .qty-ctl .decrease, .qty-ctl .increase, .view-mode .grid, .view-mode .list{background-image: url(../images/icons-style2.png);}
+.form-search:hover button.button span span, 
+.form-search button.button:hover span span{background:url(../images/icons-style2.png) -126px -687px no-repeat; }
+/*.em-wide-custom .em-footer, .em-box-custom .em-footer > .container{background-image: url(../images/bkg.png); }
+.inner_links .h5{background: url(../images/bkg.png) 0 0 repeat;}*/

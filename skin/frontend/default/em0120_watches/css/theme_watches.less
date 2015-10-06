@@ -1,0 +1,36 @@
+.tp-caption a.btn-cart{.changeAllColor(@btn5_text_color; @btn5_line_color; @btn5_bg_color; @btn5_font); 
+	&:hover{
+		.changeAllColor(@btn6_text_color; @btn6_line_color; @btn6_bg_color; @btn5_font); 
+	}
+}
+.main-products-block  .desc > a{.changeAllColor(@btn4_text_color; @btn4_line_color; @btn4_bg_color; @btn4_font); 
+	&:hover{
+		.changeAllColor(@btn3_text_color; @btn3_line_color; @btn3_bg_color; @btn4_font); 
+	}
+}
+.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-prev{
+	.changeIcon(60px; 60px; ~'-350px -19px'); background-color:@btn1_bg_color; border-color:darken(@btn1_line_color, 20%);
+	&:hover{.changeIcon(60px; 60px; ~'-350px -19px');  background-color:@btn2_bg_color; border-color:@btn2_line_color;}
+}
+.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-next{
+	.changeIcon(60px; 60px; ~'-416px -19px'); margin-right: 0;  background-color:@btn1_bg_color; border-color:darken(@btn1_line_color, 20%);
+	&:hover{.changeIcon(60px; 60px; ~'-416px -19px'); background-color:@btn2_bg_color; border-color:@btn2_line_color;}
+}
+.em-tabs-content .btn-cart, .em-tabs-content li.item .add-to-links li{border-color: @btn1_line_color;}
+.area5-three-banners ul > li > h3{.changeColorFont(@body_text3_color; @h3_font); font-size: 120%;}
+.emtabs .ui-slider-tabs-list-wrapper .ui-slider-tabs-list li a{.changeFont (@h1_font);}
+.emtabs .ui-slider-tabs-list-wrapper:before, .erea16-newsletter{.changeLine(@body_line_color);}
+.area16-four-banners ul > li{.changeLine(darken(@body_line_color,20%));}
+.erea16-newsletter .block-subscribe .block-title{.changeColorFont(@body_text3_color; @h3_font);}
+.area16-four-banners ul > li h3{.changeColorFont(@body_text3_color; @h4_font); font-size: 110%; }
+.area16-four-banners ul > li > div > a{.changeColor (@body_text4_color); }
+.erea16-newsletter > div > ul li:hover a{.changeBkg (@body_bg3_color); }
+
+.area9-tweets{.changeLine (@body_line_color);}
+.content-tweets .h5{.changeColor (@body_text4_color); font-style: italic;}
+.area9-tweets .tweets-title{.changeColorFont(@body_text3_color; @h3_font); }
+.area09-brand h3{ background-color:transparent;}
+.area16-four-banners ul > li{ background-color:@body_bg_color}
+.area17-promotion-banners li > p{color: @footer_text_color;}
+.footer-container{.changeLine (@footer_line_color);}
+.area01-shipping .content.second{.changeBkg (lighten(@body_bg4_color,24%));}

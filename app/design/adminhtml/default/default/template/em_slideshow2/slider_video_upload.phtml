@@ -1,0 +1,47 @@
+<div style="" id="slideshow2_tabs_form_general_video">
+	<div class="entry-edit custom-options">
+		<div class="entry-edit-head">
+			<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__("Video Upload") ?></h4>
+			<div class="form-buttons"></div>
+		</div>
+		<div id="slideshow2_video" class="fieldset">
+			<div class="video_content">
+				<div class="video-upload-frm">
+					<div class="row_left"><?php echo $this->__("Select File") ?> : <p><?php echo $this->__("(Allow Video Format : mp4 , avi , wmv)") ?></p></div>
+					<div class="row_right">
+						<input id="em_video" type="file" class="input-file" value="" name="emvideo" />
+						<span class="img_loading" style="display:none"><img src="<?php echo $this->getSkinUrl("em/slideshow2/images/loader.gif") ?>" atl=""/></span>
+						<button id="em_btn_upload" onclick="upAjaxVideo('<?php echo $this->getUrl("adminhtml/slider/upload/") ?>');" class="scalable add" type="button" title="<?php echo $this->__("Upload video") ?>">
+							<span><span><span><?php echo $this->__("Upload video") ?></span></span></span>
+						</button>
+						<div class="old_action" style="display:none"></div>
+					</div>
+				</div>
+				<div class="video_num" style="display:none"><?php echo $count ?></div>
+				<div class="emvideo_urldel" style="display:none"><?php echo $this->getUrl("adminhtml/slider/delupload/") ?></div>
+				<div class="content">
+					<div class="item item_title">
+						<div class="row_1"><?php echo $this->__("Number") ?></div>
+						<div class="row_2"><?php echo $this->__("Video Name") ?></div>
+						<div class="row_3">&nbsp;</div>
+					</div>
+
+					<?php if($count > 0): ?>
+						<?php foreach($video as $key=>$value): ?>
+							<div class="item vid_<?php echo $key+1 ?>">
+								<div class="row_1"><?php echo $key+1 ?></div>
+								<div class="row_2"><?php echo $value ?></div>
+								<div class="row_3"><a href="javascript:void(0);" onclick="delAjaxVideo('<?php echo $this->getUrl("adminhtml/slider/delupload/") ?>','<?php echo $value ?>','<?php echo $key+1 ?>')" title="<?php echo $this->__("Delete") ?>"><span><?php echo $this->__("Delete") ?></span></a></div>
+							</div>
+						<?php endforeach ?>
+					<?php endif ?>
+				</div>
+				<div class="bottom">
+					<div class="notification-global">
+						<strong class="label">Warning : </strong><?php echo $this->__('You need "Save and Continue Edit" sideshow after upload video to Update options select Video') ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,82 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @see Mage_Catalog_Block_Layer_View
+ */
+?>
+<?php if($this->canShowBlock()): ?>
+<div class="block block-layered-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Shop By') ?></span></strong><div class="icon_tab"></div>
+    </div>
+    <div class="block-content">
+        <?php echo $this->getStateHtml() ?>
+        <?php if ($this->getLayer()->getState()->getFilters()): ?>
+            <div class="actions"><a href="<?php echo $this->getClearUrl() ?>"><?php echo $this->__('Clear All') ?></a></div>
+        <?php endif; ?>
+        <?php if($this->canShowOptions()): ?>
+            <p class="block-subtitle"><?php echo $this->__('Shopping Options') ?></p>
+            <dl id="narrow-by-list">
+                <?php $_filters = $this->getFilters() ?>
+                <?php foreach ($_filters as $_filter): ?>
+                <?php if($_filter->getItemsCount()): ?>
+                    <?php
+                        $name	=	strtolower($_filter->getName());
+						$name	=	str_replace(" ","_",trim($name));
+                        if($name=='price'){
+                            $name='price_shopby_default';
+                        }
+                    ?>
+                    <dt class="<?php echo $name; ?>"><?php echo $this->__($_filter->getName()) ?></dt>
+                    <dd class="<?php echo $name; ?>"><?php echo $_filter->getHtml() ?></dd>
+                    
+                    <script type="text/javascript">
+                        function toogleShopby_<?php echo $name ?>(){
+                            jQuery('#narrow-by-list dd.<?php echo $name ?>').css('display','none');
+							jQuery('#narrow-by-list dt.<?php echo $name ?>').addClass('toogle-icon');
+                        	jQuery('#narrow-by-list dt.<?php echo $name ?>').on('click', function(){
+                        		jQuery(this).toggleClass("active").parent().find("dd.<?php echo $name ?>").slideToggle();
+                        	});
+                        };
+                    	
+                    	jQuery(document).ready(function(){
+                    		if(isPhone){
+                    	       toogleShopby_<?php echo $name ?>();   
+                    	   }
+                    	});
+                    </script>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </dl>
+            <script type="text/javascript">decorateDataList('narrow-by-list')</script>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

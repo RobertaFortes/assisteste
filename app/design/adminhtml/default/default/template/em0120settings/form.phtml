@@ -1,0 +1,290 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>em/colorjoe.js"></script>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>em/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js') ?>em/jquery-noconflict.js"></script>
+
+<div class="banner">
+	<a href="http://www.emthemes.com/" target="_blank"><img src="<?php echo Mage::getBaseUrl('media') ?>demo/logo_em.png" alt="EM Themes" title="EM Themes"/></a>
+</div>
+<div class="entry-edit">
+    <?php echo $this->getFormHtml();?>
+</div>
+
+<script type="text/javascript">
+jQuery(function($) {	
+	var fontLoaded = {};
+	$('#em0120_typography_google_fonts').after('<p id="em0120_typography_google_fonts_preview" style="font-size:20px;padding:10px 0"></p>')
+		.bind('change', function() {
+			var font = $(this).val();
+			if (font.length > 0) {
+				font = font[font.length-1];
+				if (typeof fontLoaded[font] == 'undefined') {
+					$('head').append('<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='+encodeURIComponent(font)+'"></link>');
+					$('#em0120_typography_google_fonts_preview').html(font)
+						.css('font-family', font);
+				}
+			}
+		});
+		
+		
+	// stripes pattern
+	$('a.em0120_typography_page_bg_image').click(function() {
+        $('a.em0120_typography_page_bg_image').removeClass('selected');
+        $(this).addClass('selected');
+        $('#em0120_typography_page_bg_image').val($(this).data('input-value'));
+        return false;
+    });
+    $('a.em0120_typography_header_bg_image').click(function() {
+        $('a.em0120_typography_header_bg_image').removeClass('selected');
+        $(this).addClass('selected');
+        $('#em0120_typography_header_bg_image').val($(this).data('input-value'));
+        return false;
+    });
+    $('a.em0120_typography_body_bg_image').click(function() {
+        $('a.em0120_typography_body_bg_image').removeClass('selected');
+        $(this).addClass('selected');
+        $('#em0120_typography_body_bg_image').val($(this).data('input-value'));
+        return false;
+    });
+    $('a.em0120_typography_footer_bg_image').click(function() {
+        $('a.em0120_typography_footer_bg_image').removeClass('selected');
+        $(this).addClass('selected');
+        $('#em0120_typography_footer_bg_image').val($(this).data('input-value'));
+        return false;
+    });
+	
+	$('head').append('<link rel="stylesheet" type="text/css" href="<?php echo Mage::getBaseUrl('js') ?>em/colorjoe.css" />');
+	$(document).ready(function(){
+        var a = $('#em0120_general_box_wide').val();
+        if(a=='wide'){
+	    $('#row_em0120_general_wideslide_full').show();  
+            $('#row_em0120_typography_page_bg_color').hide();
+            $('#row_em0120_typography_page_bg_image').hide();
+            $('#row_em0120_typography_page_bg_file').hide();
+            $('#row_em0120_typography_page_bg_position').hide();
+            $('#row_em0120_typography_page_bg_repeat').hide();
+        }else{
+	    $('#row_em0120_general_wideslide_full').hide();
+            $('#row_em0120_typography_page_bg_color').show();
+            $('#row_em0120_typography_page_bg_image').show();
+            $('#row_em0120_typography_page_bg_file').show();
+            $('#row_em0120_typography_page_bg_position').show();
+            $('#row_em0120_typography_page_bg_repeat').show();
+        }
+
+        var b = $('#em0120_image_product_viewmode').val();
+        if(b=='cloudzoom'){
+            $('#row_em0120_image_product_cloud_zoom_width').show();
+            $('#row_em0120_image_product_cloud_zoom_height').show();
+        }else{
+            $('#row_em0120_image_product_cloud_zoom_width').hide();
+            $('#row_em0120_image_product_cloud_zoom_height').hide();
+        }
+        
+        //animate
+	   var c = $('#em0120_general_disable_animate_loading').val();
+		if(c!=true){
+			$('#row_em0120_general_animate_header').show();
+			$('#row_em0120_general_animate_left').show();
+			$('#row_em0120_general_animate_right').show();
+			$('#row_em0120_general_animate_main').show();
+			$('#row_em0120_general_animate_footer').show();
+		}else{
+			$('#row_em0120_general_animate_header').hide();
+			$('#row_em0120_general_animate_left').hide();
+			$('#row_em0120_general_animate_right').hide();
+			$('#row_em0120_general_animate_main').hide();
+			$('#row_em0120_general_animate_footer').hide();
+		}
+		
+		var d = $('#em0120_image_product_use_slide').val();
+		if(d==true){
+			$('.moreview-slide-on').parents("tr").show();
+		}else{
+			$('.moreview-slide-on').parents("tr").hide();
+		}
+		
+		var e = $('#em0120_related_use_slide').val();
+		if(e==true){
+			$('.related-slide-on').parents("tr").show();
+			$('.related-slide-off').parents("tr").hide();
+		}else{
+			$('.related-slide-on').parents("tr").hide();
+			$('.related-slide-off').parents("tr").show();
+		}
+		
+		var f = $('#em0120_crosssell_use_slide').val();
+		if(f==true){
+			$('.crosssell-slide-on').parents("tr").show();
+			$('.crosssell-slide-off').parents("tr").hide();
+		}else{
+			$('.crosssell-slide-on').parents("tr").hide();
+			$('.crosssell-slide-off').parents("tr").show();
+		}
+		
+		var g = $('#em0120_upsell_use_slide').val();
+		if(g==true){
+			$('.upsell-slide-on').parents("tr").show();
+			$('.upsell-slide-off').parents("tr").hide();
+		}else{
+			$('.upsell-slide-on').parents("tr").hide();
+			$('.upsell-slide-off').parents("tr").show();
+		}
+    });
+
+    // box/wide
+    $('#em0120_general_box_wide').change(function(){
+       var a = $('#em0120_general_box_wide').val();
+       if(a=='wide'){
+	   $('#row_em0120_general_wideslide_full').show();
+           $('#row_em0120_typography_page_bg_color').hide();
+           $('#row_em0120_typography_page_bg_image').hide();
+           $('#row_em0120_typography_page_bg_file').hide();
+           $('#row_em0120_typography_page_bg_position').hide();
+           $('#row_em0120_typography_page_bg_repeat').hide();
+       }else{
+           $('#row_em0120_general_wideslide_full').hide();  
+           $('#row_em0120_typography_page_bg_color').show();
+           $('#row_em0120_typography_page_bg_image').show();
+           $('#row_em0120_typography_page_bg_file').show();
+           $('#row_em0120_typography_page_bg_position').show();
+           $('#row_em0120_typography_page_bg_repeat').show();
+       }
+    });
+    $('#em0120_image_product_viewmode').change(function(){
+	    var b = $('#em0120_image_product_viewmode').val();
+	    if(b=='cloudzoom'){
+	        $('#row_em0120_image_product_cloud_zoom_width').show();
+	        $('#row_em0120_image_product_cloud_zoom_height').show();
+	    }else{
+	        $('#row_em0120_image_product_cloud_zoom_width').hide();
+	        $('#row_em0120_image_product_cloud_zoom_height').hide();
+	    }
+    });
+    // animate
+    $('#em0120_general_disable_animate_loading').change(function(){
+	    var b = $('#em0120_general_disable_animate_loading').val();
+	    if(b!=true){
+	        $('#row_em0120_general_animate_header').show();
+	        $('#row_em0120_general_animate_left').show();
+            $('#row_em0120_general_animate_right').show();
+	        $('#row_em0120_general_animate_main').show();
+            $('#row_em0120_general_animate_footer').show();
+	    }else{
+	        $('#row_em0120_general_animate_header').hide();
+	        $('#row_em0120_general_animate_left').hide();
+            $('#row_em0120_general_animate_right').hide();
+	        $('#row_em0120_general_animate_main').hide();
+            $('#row_em0120_general_animate_footer').hide();
+	    }
+    });
+	
+	$('#em0120_image_product_use_slide').change(function(){
+		var d = $('#em0120_image_product_use_slide').val();
+		if(d==true){
+			$('.moreview-slide-on').parents('tr').show();
+		}else{
+			$('.moreview-slide-on').parents('tr').hide();
+		};
+	});
+	
+	$('#em0120_related_use_slide').change(function(){
+		var e = $('#em0120_related_use_slide').val();
+		if(e==true){
+			$('.related-slide-on').parents("tr").show();
+			$('.related-slide-off').parents("tr").hide();
+		}else{
+			$('.related-slide-on').parents("tr").hide();
+			$('.related-slide-off').parents("tr").show();
+		}
+	});
+	
+	$('#em0120_crosssell_use_slide').change(function(){
+		var f = $('#em0120_crosssell_use_slide').val();
+		if(f==true){
+			$('.crosssell-slide-on').parents("tr").show();
+			$('.crosssell-slide-off').parents("tr").hide();
+		}else{
+			$('.crosssell-slide-on').parents("tr").hide();
+			$('.crosssell-slide-off').parents("tr").show();
+		}
+	});
+		
+	$('#em0120_upsell_use_slide').change(function(){
+		var g = $('#em0120_upsell_use_slide').val();
+		if(g==true){
+			$('.upsell-slide-on').parents("tr").show();
+			$('.upsell-slide-off').parents("tr").hide();
+		}else{
+			$('.upsell-slide-on').parents("tr").hide();
+			$('.upsell-slide-off').parents("tr").show();
+		}
+	});
+	
+	// color picker
+	(function() {
+		var focus;
+
+		var el = document.createElement('div');
+		el.id = 'hslPicker';
+		$('body').append(el);
+
+		var cj = colorjoe.hsl(el, '#ffffff', [
+			// 'close',
+			'alpha',
+			'currentColor',
+			['fields', {space: 'HSLA', limit: 100, fix:2}],
+			['fields', {space: 'CMYKA', limit: 100, fix:2}],
+			'hex'
+		]).on('change', function(c) {
+			if (focus) {
+				$(focus).val(c.hex())
+					.css('background-color', c.hex());
+			}
+			
+		}).update().hide();
+	
+		var tm;
+		$('.colorjoe').focus(function() {
+			clearTimeout(tm);
+			focus = this;
+			$(el).css({position:'absolute', left:$(this).offset().left+'px', top:$(this).offset().top+$(this).outerHeight()+'px'});
+			if ($(this).val()) cj.set($(this).val());
+			cj.show();
+		}).blur(function() {
+			tm = setTimeout(function() {
+				cj.hide();
+			}, 200);
+		}).change(function() {
+			$(this).css('background-color', $(this).val());
+		}).each(function() {
+			$(this).css('background-color', $(this).val());
+		});
+	})();
+});
+</script>

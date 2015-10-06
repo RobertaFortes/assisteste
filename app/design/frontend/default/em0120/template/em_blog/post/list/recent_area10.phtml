@@ -1,0 +1,32 @@
+<?php if(Mage::getStoreConfig('blog/menu/show_recent_post')):?>
+<?php
+	$thumnailWidth = Mage::getStoreConfig('blog/info/recent_thumbnail_width');
+	$thumnailHeight = Mage::getStoreConfig('blog/info/recent_thumbnail_height');
+	$helper = Mage::helper('cms');
+	$processor = $helper->getBlockTemplateProcessor();
+	$_count_intro = 120;
+	$helperBlog = Mage::helper('blog');
+?>
+<div class="block em_block-recent-post" id="recent_post">
+	<ul class="recent_post_footer">
+		<?php $i=0; foreach ($this->getRecentPost() as $p): $i++; ?>
+			<li class="item">
+				<div class="item-date">
+					<?php $date = new DateTime($p->getCreatedAt());?>
+					<p class="datetime-month"><?php echo $date->format('j');?></p>
+					<p class="datetime-day"><?php echo $date->format('M');?></p>
+				</div>
+				<div class="item-info">
+					<a class="post-title" href="<?php echo $p->getPostUrl();?>" ><?php echo $p->getTitle();?></a>
+					<div class="post-footer">
+                        <span class="comment-user"><span><?php echo $p->getAuthor()->getUsername()?></span></span>
+                        <span class="comment-time"><small class="time-stamp"><?php echo $date->format('M j Y'); ?></small></span>
+                    </div>
+				</div>		
+			</li>
+			<?php if($i==2) break;?>
+		<?php endforeach;?>
+	</ul>
+	<script type="text/javascript">decorateGeneric($$('ul.recent_post_footer li'), ['first','last'])</script>
+</div>
+<?php endif;?>

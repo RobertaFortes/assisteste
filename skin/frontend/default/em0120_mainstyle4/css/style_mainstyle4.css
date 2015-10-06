@@ -1,0 +1,11 @@
+.comment-by:before, .comment-count:before, .comment-user:before, .comment-time:before, .comment-button button.button span span:before,
+.em_blog-cat li.parent ul.level0 li a:hover,
+.view-mode .grid, .view-mode .list,
+.form-search button.button span span,
+#em_quickshop_handler span,.block-cart-top .block-content .block-title a:before,
+#nav li a.arrow, 
+.icon, 
+.rev_slider_wrapper .tparrows,
+#back-top a:before, .em-promotion-banner li:before,.search-submit:hover button.button span span, .form-search button.button:hover span span,.area05-features div div h3:before{background-image:url(../images/icons-style4.png); }
+
+

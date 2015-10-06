@@ -1,0 +1,133 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php     
+	$setting = Mage::helper('em0120settings');
+	$width  =   $setting->getUpsell_Width(500);
+	$height =   $setting->getUpsell_Height(544);
+    $widthImage = $setting->getUpsell_Imagewidth(280);
+    $heightImage = $setting->getUpsell_Imageheight(291);
+    $_helper = $this->helper('catalog/output');
+	$useSlide = $setting->getUpsell_UseSlide();
+?>
+
+<?php if(count($this->getItemCollection()->getItems())): ?>
+<div class="box-collateral-2 box-up-sell slider">
+    <h2><span><?php echo $this->__('You may also be interested in the following product(s)') ?></span></h2>
+    <div id="upsell-product-table">
+        <ul class="products-grid <?php if($useSlide):?>em-upsell-slider <?php if($setting->getUpsell_SliderPaginationNumbers()):?> owl-pagination-numbers<?php endif;?><?php else:?>em-upsell-noslider<?php endif;?>">
+            <?php foreach ($this->getItemCollection()->getItems() as $item): ?>
+            <li class="item" <?php if(!$useSlide): ?>style="margin-right: <?php echo $setting->getUpsell_Gutter(-1) ?>px;width: <?php echo $width; ?>px; height: <?php echo $height; ?>px" <?php endif;?>>
+                <div class="product">
+					<a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($item->getName()) ?>" class="product-image">
+                        <?php Mage::helper('productlabels')->display($item);?>
+                        <img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize($widthImage, $heightImage) ?>" width="<?php echo $widthImage ?>" height="<?php echo $heightImage ?>" alt="<?php echo $this->escapeHtml($item->getName()) ?>" />
+						<span class="bkg-hover"></span>
+					</a>
+					<div class="product-details product-shop">
+						<h3 class="product-name"><a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($item->getName()) ?>"><?php echo $this->escapeHtml($item->getName()) ?></a></h3>
+						<p class="sku"><?php echo $item->getSku(); ?></p>
+                        <div class="price_addto">	
+							<?php if (Mage::helper('catalog')->canApplyMsrp($item)):?>
+								<a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->stripTags($item->getName(), null, true) ?>"><?php echo $this->__('Detail') ?></a>
+							<?php else : ?>
+								<?php echo $this->getPriceHtml($item, true, '-upsell') ?>	
+							<?php endif;?>
+						</div>			
+						<div class="hover-action">
+							<div class="actions">
+								<?php if ($item->isSaleable()): ?>
+									<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($item) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+								<?php else: ?>
+									<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+								<?php endif; ?>
+							
+								<ul class="add-to-links">
+									<?php if ($this->helper('wishlist')->isAllow()) : ?>
+										<li><a href="<?php echo $this->getAddToWishlistUrl($item) ?>" title="<?php echo $this->__('Add to Wishlist') ?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><?php echo $this->__('Add to Wishlist') ?></a></li>
+									<?php endif; ?>
+									<?php if($_compareUrl=$this->getAddToCompareUrl($item)): ?>
+										<li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" title="<?php echo $this->__('Add to Compare') ?>" class="link-compare"  title="<?php echo $this->__('Add to Compare') ?>"><?php echo $this->__('Add to Compare') ?></a></li>
+									<?php endif; ?>
+								</ul>     
+							</div>
+							<div class="desc std">
+								<?php 
+								$shortdes =  $_helper->productAttribute($item, $item->getShortDescription(), 'short_description');
+								if(strlen($shortdes)>100) { //dem ki tu chuoi $str, 80 la chieu dai muon quy dinh
+									$strCutTitle = substr($shortdes, 0, 100); //cat 80 ki tu dau
+									$shortdes = substr($strCutTitle, 0, strrpos($strCutTitle, ' '));
+									//$shortdes = substr_replace($shortdes ,"...",-3);
+								}
+								echo $shortdes ?>
+								<a href="<?php echo $item->getProductUrl() ?>" title="<?php echo $this->__("Detail") ?>">...</a>
+							</div>
+						</div>
+					</div>
+				</div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif ?>
+
+<script type="text/javascript">
+//<![CDATA[	
+	 <?php if($useSlide):?>
+	(function($) {
+		function doSliderUpsell(){
+			  var owl = $(".em-upsell-slider"); 
+			  if(owl.length){ 
+				  owl.owlCarousel({             
+					// Navigation
+					navigation : <?php echo $setting->getUpsell_SliderNavigation() ? 'true' : 'false'?>,
+					navigationText : ["<?php echo $this->__('Previous')?>", "<?php echo $this->__('Next')?>"],
+					pagination : <?php echo $setting->getUpsell_SliderPagination() ? 'true' : 'false'?>,
+					paginationNumbers: <?php echo $setting->getUpsell_SliderPaginationNumbers() ? 'true' : 'false'?>,
+				 
+					// Responsive 
+					responsive: true,
+					items : <?php echo $setting->getUpsell_SliderItems(3) ? $setting->getUpsell_SliderItems(3) : 3 ?>, /*items above 1200px browser width*/
+					itemsDesktop : [1200,<?php echo $setting->getUpsell_SliderItemsDesktop(3) ? $setting->getUpsell_SliderItemsDesktop(3) : ($setting->getUpsell_SliderItems(3) ? $setting->getUpsell_SliderItems(3) : 3) ?>], /*//items between 1199px and 981px*/
+					itemsDesktopSmall : [992,<?php echo $setting->getUpsell_SliderItemsDesktopSmall(2) ? $setting->getUpsell_SliderItemsDesktopSmall(2) : ($setting->getUpsell_SliderItems(3) ? $setting->getUpsell_SliderItems(3) : 3) ?>],
+					itemsTablet: [768,<?php echo $setting->getUpsell_SliderItemsTablet(2) ? $setting->getUpsell_SliderItemsTablet(2) : ($setting->getUpsell_SliderItems(3) ? $setting->getUpsell_SliderItems(3) : 3) ?>],		                        
+					itemsMobile : [480,<?php echo $setting->getUpsell_SliderItemsMobile(1) ? $setting->getUpsell_SliderItemsMobile(1) : ($setting->getUpsell_SliderItems(3) ? $setting->getUpsell_SliderItems(3) : 3) ?>],
+				 
+					// CSS Styles
+					baseClass : "owl-carousel",
+					theme : "owl-theme",
+					addClassActive : true,
+			  });
+			}
+		}
+		$(window).load(function(){            
+			doSliderUpsell();            
+		});
+	})(jQuery);   
+	<?php endif; ?>
+//]]>
+</script>

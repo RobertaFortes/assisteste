@@ -1,0 +1,40 @@
+<?php if(Mage::getStoreConfig('blog/menu/show_recent_post')):?>
+<?php
+	$thumnailWidth = Mage::getStoreConfig('blog/info/recent_thumbnail_width');
+	$thumnailHeight = Mage::getStoreConfig('blog/info/recent_thumbnail_height');
+	$helper = Mage::helper('cms');
+	$processor = $helper->getBlockTemplateProcessor();
+	$_count_intro = 120;
+	$helperBlog = Mage::helper('blog');
+?>
+<div class="block em_block-recent-post" id="recent_post">
+	<ul class="recent_post_content">
+		<?php $i=0; foreach ($this->getRecentPost() as $p): $i++; ?>
+			<li class="item">
+				<div class="item-image">
+					<a href="<?php echo $p->getPostUrl();?>">
+						<img src="<?php echo $helperBlog->resizeImage($p->getImage(),$thumnailWidth,$thumnailHeight,"emblog/post",'thumbnail');?>"/>
+					</a>
+				</div>
+				<div class="item-info">
+					<a class="post-title" href="<?php echo $p->getPostUrl();?>" ><?php echo $p->getTitle();?></a>
+					<?php 
+						$intro = $p->getPostIntro();
+						if(strlen($intro) > 200 ){					
+							$tam	=	substr($intro, 0, 100);
+							$plit	=	explode(" ", $tam);					
+							$tam	=	array_slice($plit,0,count($plit)-1);
+							$intro	=	strip_tags(implode(" ", $tam)."  ");
+						 } 
+					?>
+					<p class="desc"><?php echo strip_tags($intro)?><a href="<?php echo $p->getPostUrl();?>"><?php echo $this->__("Read more")?></a></p>
+					<?php //$date = new DateTime($p->getCreatedAt());?>
+					<!--p class="datetime"><?php //echo $date->format('h:iA, l, M j Y');?></p-->
+				</div>		
+			</li>
+			<?php if($i==3) break;?>
+		<?php endforeach;?>
+	</ul>
+	<script type="text/javascript">decorateGeneric($$('ul.recent_post_content li'), ['first','last'])</script>
+</div>
+<?php endif;?>

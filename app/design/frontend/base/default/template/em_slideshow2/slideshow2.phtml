@@ -1,0 +1,339 @@
+<?php
+	$model	=	Mage::getModel("core/email_template_filter");
+	$slider	=	$this->getSlider();
+	$images	=	$this->getImages($slider['images']);
+?>
+<?php if($slider['status'] == 1 && count($images) > 0 ): ?>
+	<?php
+		$sliderID		= 	$slider["id"];
+		$sliderType 	= 	$slider["slider_type"];
+		$sliderSerial	=	$sliderID.''.rand(1, 1000);
+		$sliderHtmlID 	= 	"rev_slider_".$sliderID."_".$sliderSerial;
+		$sliderHtmlID_wrapper = $sliderHtmlID."_wrapper";
+
+		$bannerWidth  = $slider['slider_params']['size_width'];
+		$bannerHeight = $slider['slider_params']['size_height'];
+
+		//set wrapper height
+		$wrapperHeigh = 0;
+		$wrapperHeigh += $slider['slider_params']['size_height'];
+		
+		//add thumb height
+		if($slider['navigation']['nav_type'] == "thumb"){
+			$wrapperHeigh += $slider['thumbnail']['thumb_height'];
+		}
+
+		$containerStyle = "";
+
+		//set position:
+		$sliderPosition = $slider["position"]['type'];
+		switch($sliderPosition){
+			case "center":
+			default:
+				$containerStyle .= "margin:0px auto;";
+			break;
+			case "left":
+				$containerStyle .= "float:left;";
+			break;
+			case "right":
+				$containerStyle .= "float:right;";
+			break;
+		}
+
+		//add background color
+		$backgrondColor = trim($slider["appearance"]["bg_color"]);
+		if(!empty($backgrondColor))
+			$containerStyle .= "background-color:$backgrondColor;";
+
+		//set padding
+		$containerStyle .= "padding:".$slider["appearance"]["padding"]."px;";
+
+		//set margin:
+		if($sliderPosition != "center"){
+			$containerStyle .= "margin-left:".$slider["position"]["mg_left"]."px;";
+			$containerStyle .= "margin-right:".$slider["position"]["mg_right"]."px;";
+		}
+
+		$containerStyle .= "margin-top:".$slider["position"]["mg_top"]."px;";
+		$containerStyle .= "margin-bottom:".$slider["position"]["mg_bottom"]."px;";
+
+		//set height and width:
+		$bannerStyle = "display:none;";
+
+		//add background image (to banner style)
+		$showBackgroundImage = $slider["appearance"]["show_bg_img"];
+		if($showBackgroundImage == "true"){
+			$backgroundImage = $slider["appearance"]["bg_img"];
+			if(!empty($backgroundImage))
+				$bannerStyle .= "background-image:url($backgroundImage);background-repeat:no-repeat;";
+		}
+
+		//set wrapper and slider class:
+		$sliderWrapperClass = "rev_slider_wrapper";
+		$sliderClass = "rev_slider";
+		
+		$putResponsiveStyles = false;
+		
+		switch($sliderType){
+			default:
+			case "fixed":
+				$bannerStyle .= "height:{$bannerHeight}px;width:{$bannerWidth}px;";
+				$containerStyle .= "height:{$bannerHeight}px;width:{$bannerWidth}px;";
+			break;
+			case "responsitive":
+				$putResponsiveStyles = true;
+			break;
+			case "fullwidth":
+				$sliderWrapperClass .= " fullwidthbanner-container";
+				$sliderClass .= " fullwidthabanner";
+				$bannerStyle .= "max-height:{$bannerHeight}px;height:{$bannerHeight};";
+				$containerStyle .= "max-height:{$bannerHeight}px;";
+			break;
+			case "fullsrceen":
+				$sliderWrapperClass .= " fullscreenbanner-container";
+				$sliderClass .= " fullscreenbanner";
+			break;
+		}
+
+		$htmlTimerBar = "";
+		if($slider['appearance']['show_time'] == "true"){
+			$timerPosition = $slider['appearance']['time_position'];
+			
+			if($timerPosition == "top")
+				$htmlTimerBar = '<div class="tp-bannertimer"></div>';
+			else
+				$htmlTimerBar = '<div class="tp-bannertimer tp-bottom"></div>';
+		}
+	?>
+	<?php if($putResponsiveStyles == true) : ?>
+		<?php	$arrItems = $this->getResponsitiveValues($slider['slider_params']);	?>
+		<style type='text/css'>
+				#<?php echo $sliderHtmlID?>, #<?php echo $sliderHtmlID_wrapper?> { width:<?php echo $bannerWidth?>px; height:<?php echo $bannerHeight?>px;}
+			<?php
+			foreach($arrItems as $item):
+				$strMaxWidth = "";
+				if($item["maxWidth"] >= 0)
+					$strMaxWidth = "and (max-width: {$item["maxWidth"]}px)";
+			?>
+			   @media only screen and (min-width: <?php echo $item["minWidth"]?>px) <?php echo $strMaxWidth?> {
+			 		  #<?php echo $sliderHtmlID?>, #<?php echo $sliderHtmlID_wrapper?> { width:<?php echo $item["sliderWidth"]?>px; height:<?php echo $item["sliderHeight"]?>px;}
+			   }
+			<?php endforeach ?>
+		</style>
+	<?php endif ?>
+	<div class="tp-banner-container <?php echo $sliderWrapperClass?>" style="<?php echo $containerStyle?>">
+		<div class="tp-banner <?php echo $sliderClass?>" id="<?php echo $sliderHtmlID ?>" style="<?php echo $bannerStyle?>" >
+			<ul>	<!-- SLIDE  -->
+			<?php
+				$thumbWidth = $slider["thumbnail"]["thumb_width"];
+				$thumbHeight = $slider["thumbnail"]["thumb_height"];
+				
+				$slideWidth = $bannerWidth;
+				$slideHeight = $bannerHeight;
+				
+				$navigationType = $slider["navigation"]["nav_type"]; 
+				$isThumbsActive = ($navigationType == "thumb")?true:false;
+			?>
+			<?php foreach($images as $key=>$value): ?>
+				<?php
+					//get thumb url
+					$htmlThumb = "";
+					if($isThumbsActive == true){
+						$urlThumb = "";
+
+						if(empty($urlThumb)){	//try to get resized thumb
+							$pathThumb = $value['url'];
+							if(!empty($pathThumb))
+								$urlThumb = $this->getResizeImage($pathThumb,$thumbWidth,$thumbHeight);
+						}
+
+						//if not - put regular image:
+						if(empty($urlThumb))
+							$urlThumb = $value['url'];
+						
+						$htmlThumb = 'data-thumb="'.$urlThumb.'" ';
+					}
+
+					//set delay
+					$htmlDelay = "";
+					$delay = $slider["delay"];
+					if(!empty($delay) && is_numeric($delay))
+						$htmlDelay = "data-delay=\"$delay\" ";
+
+					//set full width centering.
+					$htmlImageCentering = "";
+					$fullWidthCentering = "true";
+					if($sliderType == "fullwidth" && $fullWidthCentering == "true")
+						$htmlImageCentering = 'data-fullwidthcentering="true"';
+
+					$htmlParams = $htmlThumb.$htmlDelay;
+				?>
+				<li data-transition="<?php echo $value['trans'] ?>" data-slotamount="<?php echo $value['slotamount'] ?>" <?php if($value['link'] != ""): ?> data-link="<?php echo $value['link'] ?>"<?php endif?> <?php echo $htmlParams?>>
+
+					<img src="<?php echo $this->getSkinUrl('em/slideshow2/images/dummy.png') ?>" data-lazyload="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'em_slideshow/'.$value['url']; ?>"  alt="" data-bgposition="center top" data-bgrepeat="no-repeat" <?php if($value['kenb'] == 1):?> data-kenburns="on" data-duration="<?php echo $value['kenb_dura'] ?>" data-bgfit="<?php echo $value['kenb_bgfit'] ?>" data-bgfitend="<?php echo $value['kenb_bgfitend'] ?>" <?php endif ?> <?php echo $htmlImageCentering?>>
+
+					<?php if($value['video'] != 0): ?>
+						<div class="tp-caption tp-fade fadeout fullscreenvideo tp-videolayer" data-x="0" data-y="0" data-speed="100" data-start="100" data-easing="Power4.easeOut" data-elementdelay="0.01" data-endelementdelay="0.1" data-endspeed="1500" data-endeasing="Power4.easeIn" data-autoplay="true" data-autoplayonlyfirsttime="false" data-nextslideatend="true" data-videowidth="100%" data-videoheight="100%" data-videopreload="meta" data-videoloop="none" data-videomp4="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'em_slideshow/video/'.$value['video'] ?>" data-videocontrols="none" data-forcecover="1" data-forcerewind="on" data-aspectratio="16:9" data-volume="mute" data-videoposter="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'em_slideshow/'.$value['url']; ?>"></div>
+					<?php endif ?>
+
+					<?php foreach($value['info'] as $skey=>$sval): ?>
+						<div class="tp-caption <?php echo $sval['animation'] ?> customout <?php if($sval['parallax'] != 0): ?>rs-parallaxlevel-<?php echo $sval['parallax'] ?> <?php endif ?>"
+							data-x="<?php echo $sval['data_x'] ?>"
+							data-y="<?php echo $sval['data_y'] ?>"
+							data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+							data-speed="<?php echo $sval['speed'] ?>"
+							data-start="<?php echo $sval['start'] ?>"
+							<?php if($sval['end']):?> data-end="<?php echo $sval['end'] ?>" <?php endif ?>
+							data-easing="<?php echo $sval['easing'] ?>"
+							data-elementdelay="0.1"
+							data-endelementdelay="0.1"><?php echo $model->filter($sval['text']) ?>
+						</div>
+					<?php endforeach ?>
+				</li>
+			<?php endforeach ?>
+			</ul>
+			<?php echo $htmlTimerBar?>
+		</div>
+	</div>
+
+	<?php	
+		/************************	JS		**************************/
+		$optFullWidth = ($sliderType == "fullwidth")?"on":"off";
+		$optFullScreen = ($sliderType == "fullsrceen")?"on":"off";
+
+		$noConflict = $slider['trouble']['jquery_noconflict'];
+
+		//set thumb amount
+		$numSlides = 10;
+		$thumbAmount = (int)$slider['thumbnail']['thumb_amount'];
+		if($thumbAmount > $numSlides)
+			$thumbAmount = $numSlides;
+
+		//get stop slider options
+		 $stopSlider = $slider['stop_slider'];
+		 $stopAfterLoops = $slider['stop_after_loop'];
+		 $stopAtSlide = $slider['stop_at_slide'];
+
+		 if($stopSlider == "off"){
+			 $stopAfterLoops = "-1";
+			 $stopAtSlide = "-1";
+		 }
+
+		// set hide navigation after
+		$hideThumbs = $slider['navigation']['hide_thumbs'];
+		if(is_numeric($hideThumbs) == false)
+			$hideThumbs = "0";
+		else{
+			$hideThumbs = (int)$hideThumbs;
+			if($hideThumbs < 10)
+				$hideThumbs = 10;
+		}
+
+		$alwaysOn = $slider['navigation']['nav_always_on'];
+		if($alwaysOn == "true")
+			$hideThumbs = "0";
+
+		//treat hide slider at limit
+		$hideSliderAtLimit = $slider['visibility']['hide_slider_under'];
+		if(!empty($hideSliderAtLimit))
+			$hideSliderAtLimit++;
+
+		//this option is disabled in full width slider
+		if($sliderType == "fullwidth")
+			$hideSliderAtLimit = "0";
+
+		$hideCaptionAtLimit = $slider['visibility']['hide_defined_layers_under'];
+		if(!empty($hideCaptionAtLimit))
+			$hideCaptionAtLimit++;
+
+		$hideAllCaptionAtLimit = $slider['visibility']['hide_all_layers_under'];
+		if(!empty($hideAllCaptionAtLimit))
+			$hideAllCaptionAtLimit++;
+
+		//modify navigation type (backward compatability)
+		$arrowsType = $slider['navigation']['nav_arrows'];
+		switch($arrowsType){
+			case "verticalcentered":
+				$arrowsType = "solo";
+			break;
+		}
+	?>
+	<script type="text/javascript">
+		<?php if($noConflict == "on"):?>
+			jQuery.noConflict();
+		<?php endif;?>
+		var revapi<?php echo $sliderID?>;
+		jQuery(document).ready(function() {
+			if(jQuery('#<?php echo $sliderHtmlID?>').revolution == undefined)
+				revslider_showDoubleJqueryError('#<?php echo $sliderHtmlID?>');
+			else
+				revapi<?php echo $sliderID?> = jQuery('#<?php echo $sliderHtmlID?>').show().revolution(
+				{
+					delay:<?php echo $slider['delay'] ?>,
+					startwidth:<?php echo $slider['slider_params']['size_width'] ?>,
+					startheight:<?php echo $slider['slider_params']['size_height'] ?>,
+					hideThumbs:<?php echo $hideThumbs?>,
+
+					thumbWidth:<?php echo $slider['thumbnail']['thumb_width'] ?>,
+					thumbHeight:<?php echo $slider['thumbnail']['thumb_height'] ?>,
+					thumbAmount:<?php echo $thumbAmount?>,
+
+					navigationType:"<?php echo $slider['navigation']['nav_type'] ?>",
+					navigationArrows:"<?php echo $arrowsType?>",
+					navigationStyle:"<?php echo $slider['navigation']['nav_style'] ?>",
+
+					touchenabled:"<?php echo $slider['touch'] ?>",
+					onHoverStop:"<?php echo $slider['stop_hover'] ?>",
+
+					swipe_velocity: 0.7,
+					swipe_min_touches: 1,
+					swipe_max_touches: 1,
+					drag_block_vertical: false,
+
+					parallax:"mouse",
+					parallaxBgFreeze:"on",
+					parallaxLevels:[8,7,4,3,2,5,4,3,2,1,0],
+
+					keyboardNavigation:"off",
+
+					navigationHAlign:"center",
+					navigationVAlign:"bottom",
+					navigationHOffset:<?php echo $slider['navigation']['nav_offset_hor'] ?>,
+					navigationVOffset:<?php echo $slider['navigation']['nav_offset_vert'] ?>,
+
+					soloArrowLeftHalign:"left",
+					soloArrowLeftValign:"center",
+					soloArrowLeftHOffset:20,
+					soloArrowLeftVOffset:0,
+
+					soloArrowRightHalign:"right",
+					soloArrowRightValign:"center",
+					soloArrowRightHOffset:20,
+					soloArrowRightVOffset:0,
+
+					shadow:<?php echo $slider['appearance']['shadow_type'] ?>,
+					shuffle:"<?php echo $slider['shuffle_mode'] ?>",
+
+					fullWidth:"<?php echo $optFullWidth?>",
+					fullScreen:"<?php echo $optFullScreen?>",
+
+					stopLoop:"<?php echo $stopSlider?>",
+					stopAfterLoops:<?php echo $stopAfterLoops?>,
+					stopAtSlide:<?php echo $stopAtSlide?>,
+
+					hideThumbsOnMobile:"off",
+					hideNavDelayOnMobile:1500,
+					hideBulletsOnMobile:"off",
+					hideArrowsOnMobile:"off",
+					hideThumbsUnderResolution:0,
+
+					hideSliderAtLimit:<?php echo $hideSliderAtLimit?>,
+					hideCaptionAtLimit:<?php echo $hideCaptionAtLimit?>,
+					hideAllCaptionAtLilmit:<?php echo $hideAllCaptionAtLimit?>,
+					startWithSlide:0,
+					videoJsPath:"rs-plugin/videojs/",
+					fullScreenOffsetContainer: ""
+				});
+		});	//ready
+	</script>
+<?php endif ?>

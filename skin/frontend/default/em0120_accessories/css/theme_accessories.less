@@ -1,0 +1,37 @@
+.main-products-block .em-widget-title > h3, .best-sellers  .em-widget-title > h3 {.changeColorFont(@body_text3_color; @h1_font); }
+.main-products-block .em-widget-title > h3:before, 
+.best-sellers  .em-widget-title > h3:before,
+.main-products-block .em-widget-title > h3 > span, .best-sellers  .em-widget-title > h3 > span{.changeBkg (@body_bg_color);}
+.em-tabs-content .btn-cart, .em-tabs-content li.item .add-to-links li{border-color:@btn1_line_color;}
+.area16-banner-newsletter .block-subscribe .block-title, .area06-blog .block_title h3, .best-sellers .em-widget-title h3{.changeColorFont(@body_text3_color; @h3_font); font-weight: 600;}
+.area16-banner-newsletter  div.newsletter-content{.changeLine (lighten(@body_bg5_color, 20%);); }
+.area16-banner-newsletter div.social ul > li > a:hover{.changeBkg (@body_bg3_color); }
+.em-footer{.changeLine (@footer_line2_color);}
+.em-footer > .container:before{border-bottom-color:transparent; }
+/*.em_block-recent-post li.item .item-info .desc > a{.changeColor (@body_text4_color); }
+.em_block-recent-post li.item .item-info .post-title{.link(@body_text3_color; @body_text4_color); font-weight:normal; }*/
+.best-sellers .actions{ font:@btn1_font}
+.em-products {.changeBkg(@body_bg_color; @image_bg_url; @body_bg_image; @body_bg_position; @body_bg_repeat);}
+.main-products-block .em-widget-title > h3:before, .best-sellers .em-widget-title > h3:before, .main-products-block .em-widget-title > h3 > span, .best-sellers .em-widget-title > h3 > span{ background:transparent}
+.em-footer-bottom{.changeLine(@body_line_color);}
+.area05-three-banners li a > span span{font:@h1_font; font-size:280%; line-height:36px;}
+.area05-three-banners li a > span span + span,.area16-banner-newsletter li a > span span + span{font:@h2_font; font-size:125%;}
+.area16-banner-newsletter li a > span span{font:@banner_title_font; color: @body_text5_color; line-height:1;}
+.best-sellers .owl-theme .owl-controls .owl-buttons div.owl-prev, .main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-prev{
+	.changeIcon(60px; 60px; ~'-496px -98px'); margin-right: 0;  background-color:@btn1_bg_color; border-color:@btn1_line_color; opacity: 0; filter: alpha(opacity=0); z-index:2;
+	&:hover{.changeIcon(60px; 60px; ~'-349px -98px'); background-color:@btn1_text_color; border-color:@btn1_text_color;}
+}
+.best-sellers .owl-theme .owl-controls .owl-buttons .owl-next,.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-next{
+	.changeIcon(60px; 60px; ~'-563px -98px'); background-color:@btn1_bg_color; border-color:@btn1_line_color;opacity: 0; filter: alpha(opacity=0); z-index:2;
+	&:hover{.changeIcon(60px; 60px; ~'-415px -98px');  background-color:@btn1_text_color; border-color:@btn1_text_color;}
+}
+.main-products-block > div .owl-theme:hover .owl-controls .owl-buttons div, .best-sellers .owl-theme:hover .owl-controls .owl-buttons div{opacity: 1;filter: alpha(opacity=100);}
+.owl-theme .owl-controls .owl-buttons div{transition:none;}
+.em-wide-custom .em-banner, .em-box-custom .em-banner .container{background-color:@body_bg_color;}
+.area06-blog .em_block-recent-post li.item .item-info .post-title{.changeColorFont(@body_text3_color; @h3_font); font-size: 125%;}
+.area06-blog .em_block-recent-post li.item .item-info .desc a{color:@body_text4_color;}
+.area06-blog .block_title, .best-sellers .em-widget-title{.changeLine(@body_line_color);}
+.area06-blog .em_block-recent-post li.item .item-info .post-title:hover{color:@body_text4_color;}
+.area17-promotion-banners li > p{color: @footer_text_color;}
+.footer-container{.changeLine (@footer_line_color);}
+.area01-shipping .content.second{.changeBkg (lighten(@body_bg4_color,22%));}

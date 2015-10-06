@@ -1,0 +1,28 @@
+.em-wide-custom .em-footer, .em-box-custom .em-footer > .container,
+.em-slideshow, 
+.em-wide-custom .em-content, 
+.em-box-custom .em-content > .container,
+.em-wide-custom .em-shipping, 
+.em-box-custom .em-shipping > .container, 
+.em-wide-custom .em-content-bottom, 
+.em-box-custom .em-content-bottom > .container{/*background-image: url(../images/bkg.png);*/}
+
+.em-footer > .container:before{border-bottom:none;}
+.icon, 
+.inner_links .link_address:before, 
+#back-top a:before,
+.qty-increase button, 
+.qty-decrease button, 
+.qty-ctl .decrease, 
+.qty-ctl .increase{background: url(../images/icons-style3.png)  0px 0px no-repeat;}
+.em-promotion-banner li:before, .area05-features div div h3:before, .form-search button.button span span, .block-cart-top .block-content .block-title a:before, .qty-increase button, .qty-decrease button, .qty-ctl .decrease, .qty-ctl .increase, .view-mode .grid, .view-mode .list{background-image: url(../images/icons-style3.png);}
+.form-search:hover button.button span span, 
+.form-search button.button:hover span span{background:url(../images/icons-style3.png) -126px -687px no-repeat; }
+.area05-blog-newsletter .post-title,
+.area07-featured-products .block_title h3,
+.ui-slider-tabs .ui-slider-tabs-list, 
+.box-up-sell h2 > span, .product-view .box-reviews h2 > span, 
+.form-add h2 > span,
+.cart .totals h2, .cart .discount h2, .cart .shipping h2, .crosssell h2 > span,
+.area09-brand h3,
+.inner_links .h5{/*background: url(../images/bkg.png) 0px 0px repeat;*/}

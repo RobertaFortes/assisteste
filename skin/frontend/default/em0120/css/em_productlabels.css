@@ -1,0 +1,40 @@
+/**
+ * EM ProductLabels
+ *
+ * @license commercial software
+ * @copyright (c) 2014 Codespot Software JSC - EMThemes.com. (http://www.emthemes.com)
+ */
+
+.products-grid .item, .products-list .item { position:relative }
+.product-img-box { position:relative; }
+.product-view .box-up-sell .products-grid td div.td { position:relative; }
+.mini-products-list .product { position:relative; }
+.crosssell .item { position:relative }
+
+.productlabels_icons { position:absolute; top:10px; left:10px;z-index: 0; }
+.product-img-box .productlabels_icons { z-index:10; }
+.productlabels_icons .label {width:55px; height:55px; line-height:1em; padding:0; display:block; margin-bottom:3px; border-radius: 100%; -webkit-border-radius: 100%; -moz-border-radius: 100%; 
+-moz-transition: all 400ms ease-in-out 0s;
+-webkit-transition: all 400ms ease-in-out 0s;
+-o-transition: all 400ms ease-in-out 0s;
+transition: all 400ms ease-in-out 0s;}
+.productlabels_icons .label > span{ padding:19px 6px; display:block; text-align:center; white-space: normal; text-transform:uppercase;}
+.productlabels_icons .label { padding:0; display: inline-block;}
+.productlabels_icons .new, .productlabels_icons .hot{margin-right: -20px;}
+.productlabels_icons .sale{background-color: #b95b79;}
+.productlabels_icons .nobg { background:none; width:auto; height:auto; }
+
+.productlabels_icons .orange { background-position:0 0 }
+.productlabels_icons .yellow { background-position:0 -60px }
+.productlabels_icons .blue { background-position:0 -120px }
+.productlabels_icons .violet { background-position:0 -180px }
+.productlabels_icons .red { background-position:0 -240px }
+.productlabels_icons .black { background-position:0 -300px }
+.productlabels_icons .new { background-position:-111px -8px;  }
+.productlabels_icons .new:hover { background-position:-13px -8px;  }
+.productlabels_icons .sale { background-position:-111px -117px; }
+.productlabels_icons .sale:hover { background-position:-13px -117px; }
+.productlabels_icons .hot { background-position:-111px -215px; }
+.productlabels_icons .hot:hover { background-position:-14px -215px; }
+
+

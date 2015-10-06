@@ -1,0 +1,64 @@
+.icon.ship{.changeIcon(20px; 21px; ~'-128px 0px'); margin-top: 2px; margin-left: 10px; }
+.em-wide-custom  .header-top ,.em-box-custom  .header-top  > .container {.changeLine (@header_line3_color); }
+.tp-caption a.btn-cart{
+	.changeAllColor(@btn1_text_color; @btn1_line_color; @btn1_bg_color; @btn1_font);
+	&:hover{
+		.changeAllColor(@btn2_text_color; @btn2_line_color; @btn2_bg_color; @btn1_font);
+	}
+}
+.rev_slider_wrapper .tparrows.tp-leftarrow{
+	.changeBkgPosition(~'-348px -17px');
+	&:hover{.changeBkgPosition(~'-348px -95px');
+		transition: all 500ms ease 0ms;
+		-webkit-transition: all 500ms ease 0ms;
+		-moz-transition: all 500ms ease 0ms;
+	}
+}
+.rev_slider_wrapper .tparrows.tp-rightarrow{
+	.changeBkgPosition(~'-414px -17px'); 
+	&:hover{.changeBkgPosition(~'-414px -95px');
+		transition: all 500ms ease 0ms;
+		-webkit-transition: all 500ms ease 0ms;
+		-moz-transition: all 500ms ease 0ms;
+	}
+}
+.rev_slider_wrapper .tparrows{border-color: darken(@btn1_line_color, 20%); background-color: @btn1_line_color;}
+.tp-caption a.btn-cart{border-color: @btn1_text_color;}
+.area01-shipping > div h3, .area01-shipping > div > div:hover h3{}
+.area05-shipping > div > h3, .main-widget .em-widget-title > h3{border-color: @body_line_color;}
+.area05-shipping > div > h3, 
+.main-widget .em-widget-title > h3{.changeColorFont(@body_text3_color; @h3_font);}
+.main-widget .em-widget-title > h3:before, .area09-brand {.changeLine (@body_line_color);}
+.area05-shipping > div > p{.changeColor (@body_text2_color);}
+.area9-four-banner ul li > h3{.changeColorFont(@body_text3_color; @h4_font); font-size: 110%;}
+.area9-four-banner ul li p{.changeFont(@h4_font); font-size: 100%}
+.area9-four-banner ul > li > a{.changeColor (@body_text4_color); }
+.area10-tweets-newsletter  .tweets{.changeLine (@footer_line2_color); }
+.area10-tweets-newsletter .block-subscribe .block-title{.changeColorFont(@footer_text2_color; @h1_font);}
+.block-subscribe input.input-text{.changeColor (@footer_text_color); .changeLine (@footer_line_color); }
+.area10-tweets-newsletter ul > li > a:hover{.changeBkg (@footer_bg2_color); }
+.block-subscribe button.button{	
+	&:hover{
+		.changeAllColor(@btn4_text_color; @btn4_line_color; @btn4_bg_color; @btn1_font);		
+	}
+}
+.tweets-status > a{
+	.changeAllColor(@btn3_text_color; @btn3_line_color; @btn3_bg_color; @btn3_font);	
+	&:hover{
+		.changeAllColor(@btn4_text_color; @btn4_line_color; @btn4_bg_color; @btn3_font);		
+	}
+}
+.content-tweets .h5{.changeColor (@footer_text4_color);}
+.area10-tweets-newsletter .tweets-title{.changeColorFont(@footer_text2_color; @h3_font);}
+.area10-tweets-newsletter  .tweets-title:before {.changeIcon(34px; 29px; ~'-149px -103px');}
+
+.dropdown-cart-content-top .amount .cart-total .price{ color:@body_text4_color}
+
+.featured-product .actions{ font:@btn1_font}
+.area10-tweets-newsletter > div.tweets{ background:lighten(@footer_bg_color,3%); border-color:darken(@footer_line_color,5%)}
+.header-top{
+	.changeBkg(@header_bg2_color; @image_bg_url; @header_bg_image; @header_bg_position; @header_bg_repeat); }
+.main-widget .em-widget-title > h3 > span{.changeBkg(@body_bg_color; @image_bg_url; @body_bg_image; @body_bg_position; @body_bg_repeat); }	
+.area17-promotion-banners li > p{color: @footer_text_color;}
+.footer-container{.changeLine (@footer_line_color);}
+.area01-shipping .content.second{.changeBkg (@body_bg4_color);}

@@ -1,0 +1,47 @@
+/**
+ * EMThemes
+ *
+ * @license commercial software
+ * @copyright (c) 2012 Codespot Software JSC - EMThemes.com. (http://www.emthemes.com)
+ */
+.em0120_typography_page_bg_image img,
+.em0120_typography_top_header_bg_image img ,
+.em0120_typography_header_bg_image img ,
+.em0120_typography_footer_bg_image img,
+.em0120_typography_body_bg_image img{ width:30px; height:30px; border:2px solid #ffffff }
+.em0120_typography_page_bg_image:hover img,
+.em0120_typography_page_bg_image.selected img,
+.em0120_typography_top_header_bg_image:hover img,
+.em0120_typography_top_header_bg_image.selected img,
+.em0120_typography_header_bg_image:hover img,
+.em0120_typography_header_bg_image.selected img,
+.em0120_typography_footer_bg_image:hover img,
+.em0120_typography_footer_bg_image.selected img,
+.em0120_typography_body_bg_image:hover img,
+.em0120_typography_body_bg_image.selected img{ border:2px solid #000000 }
+
+.color_pattern { display:inline-block; width:10px; height:10px; vertical-align:text-bottom; border:1px solid #333; }
+
+#row_em0120_typography_fonts label,
+#row_em0120_typography_general label,
+#row_em0120_typography_header label,
+#row_em0120_typography_menu label,
+#row_em0120_typography_body label,
+#row_em0120_typography_footer label,
+#row_em0120_typography_button label,
+#row_em0120_typography_button1 label,
+#row_em0120_typography_button2 label,
+#row_em0120_typography_button3 label,
+#row_em0120_typography_button4 label,
+#row_em0120_typography_button5 label,
+#row_em0120_typography_button6 label,
+#row_em0120_typography_additional label,
+#row_em0120_typography_customcss label{font-size:20px; color: #eb5e00;text-transform:uppercase;}
+
+#row_em0120_typography_button .note,
+#row_em0120_typography_button1 .note,
+#row_em0120_typography_button2 .note,
+#row_em0120_typography_button3 .note,
+#row_em0120_typography_button4 .note,
+#row_em0120_typography_button5 .note,
+#row_em0120_typography_button6 .note{font-size: 18px; color: #EB5E00;text-transform: capitalize;}

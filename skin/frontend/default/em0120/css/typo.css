@@ -1,0 +1,144 @@
+Typography
+		font:/*BEGIN:general_font*/normal 13px/1.35 Arial, Helvetica, sans-serif/*END:general_font*/;
+		font:/*BEGIN:h1_font*/normal 30px/1.35 Playfair Display,Arial,Helvetica,sans-serif/*END:h1_font*/; 
+		font:/*BEGIN:h2_font*/normal 24px/1.35 Playfair Display,Arial,Helvetica,sans-serif/*END:h2_font*/;  
+		font:/*BEGIN:h3_font*/normal 18px/1.35 Playfair Display,Arial,Helvetica,sans-serif/*END:h3_font*/;  
+		font:/*BEGIN:h4_font*/normal 14px/1.35 Playfair Display,Arial,Helvetica,sans-serif/*END:h4_font*/; 
+		font:/*BEGIN:h5_font*/normal 12px/1.35 Playfair Display,Arial,Helvetica,sans-serif/*END:h5_font*/;
+		font:/*BEGIN:h6_font*/normal 10px/1.35 Open Sans,Arial,Helvetica,sans-serif/*END:h6_font*/; 
+	General :
+	box-shadow:/*BEGIN:box_shadow*/0 0px 10px #dfdfdf/*END:box_shadow*/ ;  menu, sp.
+		-moz-box-shadow:/*BEGIN:box_shadow*/0 0px 10px #dfdfdf/*END:box_shadow*/ ;
+		-webkit-box-shadow: /*BEGIN:box_shadow*/0 0px 10px #dfdfdf/*END:box_shadow*/ ;
+		border-radius:/*BEGIN:rounded_corner*/3px/*END:rounded_corner*/;
+-webkit-border-radius:/*BEGIN:rounded_corner*/3px/*END:rounded_corner*/;
+-moz-border-radius:/*BEGIN:rounded_corner*/3px/*END:rounded_corner*/;
+		border-top-left-radius:2em;
+border-top-right-radius:2em;
+border-bottom-right-radius:2em;
+border-bottom-left-radius:2em;
+box-sizing:border-box;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+	
+	Header
+			- background-color :/*BEGIN:header_bg_color*/#fff/*END:header_bg_color*/ //bkg  default
+			- background-color 2 :/*BEGIN:header_bg2_color*/#000/*END:header_bg2_color*/   bkg header top
+			- background-position:/*BEGIN:header_bg_position*/0 0/*END:header_bg_position*/
+			- background-repeat:/*BEGIN:header_bg_repeat*/repeat/*END:header_bg_repeat*/
+			- text color: color: /*BEGIN:header_text_color*/#666666/*END:header_text_color*/	 //text default
+			- text color 2: color: /*BEGIN:header_text2_color*/#ffffff/*END:header_text2_color*/	// header top
+			- text color 3: color: /*BEGIN:header_text3_color*/#999999/*END:header_text3_color*/	//text search,...
+			- text color 4: color: /*BEGIN:header_text4_color*/#b58719/*END:header_text4_color*/	//hover
+			- border:1px solid /*BEGIN:header_line_color*/#dcdcdc/*END:header_line_color*/  search		
+			- border:1px solid /*BEGIN:header_line2_color*/#000000/*END:header_line2_color*/  hover  search
+			- border:1px solid /*BEGIN:header_line3_color*/#bdbdbd/*END:header_line3_color*/  dropdown cart.
+	Menu
+		- Top Menu 
+			+ Background Color 1:/*BEGIN:topmenu_bg_color*/transparent/*END:topmenu_bg_color*/	
+			+ Background Color 2:/*BEGIN:topmenu_bg2_color*/#000000/*END:topmenu_bg2_color*/	
+			+ Background Color 3:/*BEGIN:topmenu_hover_bg_color*/transparent/*END:topmenu_hover_bg_color*/	
+			+ Text Color : color: /*BEGIN:topmenu_text_color*/#000000/*END:topmenu_text_color*/
+			+ Text Color2 : color: /*BEGIN:topmenu_text2_color*/#ffffff/*END:topmenu_text2_color*/
+			+ Hover/Active Text Color: color: /*BEGIN:topmenu_hover_text_color*/#b58719/*END:topmenu_hover_text_color*/			
+			+ border:1px solid /*BEGIN:topmenu_line_color*/#ee217a/*END:topmenu_line_color*/ 
+			+ font: /*BEGIN:topmenu_font*/400 15px/1.35 Playfair Display,Arial, Helvetica, sans-serif/*END:topmenu_font*/
+		
+		- Dropdown Menu
+			+ Background Color:  background-color: /*BEGIN:dropmenu_bg_color*/#ffffff/*END:dropmenu_bg_color*/;
+			+ Text Color: color: /*BEGIN:dropmenu_text_color*/#666666/*END:dropmenu_text_color*/	// title drop menu
+			+ Text Color 2: color:/*BEGIN:dropmenu_text2_color*/#999999/*END:dropmenu_text2_color*/	//  text default
+			+ Text Color Link Hover: color:/*BEGIN:dropmenu_hover_text_color*/#b58719/*END:dropmenu_hover_text_color*/ 
+			+ border:1px solid /*BEGIN:dropmenu_line_color*/#bdbdbd/*END:dropmenu_line_color*/ 
+			+ font: /*BEGIN:dropmenu_font*/normal 11px/1.35 Arial,Helvetica,sans-serif/*END:dropmenu_font*/
+	Body
+		- Background Color 1: /*BEGIN:body_bg_color*/#ffffff/*END:body_bg_color*/   
+		- Background Color 2: /*BEGIN:body_bg2_color*/#63360e/*END:body_bg2_color*/ block
+		- Background Color 3: /*BEGIN:body_bg3_color*/#000000/*END:body_bg3_color*/ // hover tags, qty,... 	
+		- Background Color 4: /*BEGIN:body_bg4_color*/#b58719/*END:body_bg4_color*/  //instock, page hover,...
+		- Background Color 5: /*BEGIN:body_bg5_color*/#bdbdbd/*END:body_bg5_color*/  //tables,...
+		- background-position: /*BEGIN:body_bg_position*/ 0 0 /*END:body_bg_position*/
+		- background-repeat: /*BEGIN:body_bg_repeat*/no-repeat /*END:body_bg_repeat*/
+
+		
+		- Text Color 1: /*BEGIN:body_text_color*/#999999/*END:body_text_color*/ //defaut
+		- Text Color 2: /*BEGIN:body_text2_color*/#666666/*END:body_text2_color*/ // text navigation, title reviews...
+		- Text Color 3: /*BEGIN:body_text3_color*/#000000/*END:body_text3_color*/ //price, product name, title sidebar...			
+		- Text Color 4: /*BEGIN:body_text4_color*/#b58719/*END:body_text4_color*/ //hover, total price, title checkout steps,...
+		- Text Color 5: /*BEGIN:body_text5_color*/#ffffff/*END:body_text5_color*/ //label hover,pages, text back to top, tags...
+		- Text Color 6: /*BEGIN:body_text6_color*/#bc1e17/*END:body_text6_color*/    //label hot
+		- Text Color 7: /*BEGIN:body_text7_color*/#b58719/*END:body_text7_color*/    // label new
+		- Text Color 8: /*BEGIN:body_text8_color*/#000000/*END:body_text8_color*/     lable sale		
+		
+		- Line 1 : /*BEGIN:body_line_color*/#cecece/*END:body_line_color*/   // popular line
+		- Line 2 : /*BEGIN:body_line2_color*/#edf2ee/*END:body_line2_color*/   // block shipping
+		- Line 3 : /*BEGIN:body_line3_color*/#000000/*END:body_line3_color*/  //hover/acitve input
+
+	Footer
+		- Text Color 1:/*BEGIN:footer_text_color*/#999999/*END:footer_text_color*/   //text default
+		- Text Color 2:/*BEGIN:footer_text2_color*/#ffffff/*END:footer_text2_color*/	// title footer 
+		- Text Color 3:/*BEGIN:footer_text3_color*/#474747/*END:footer_text3_color*/	//  text coppy right
+		- Text Color 4:/*BEGIN:footer_text4_color*/#a87909/*END:footer_text4_color*/	// text support
+		- Line 1 : /*BEGIN:footer_line_color*/#3e3e3e/*END:footer_line_color*/  title footer
+		- Line 2 : /*BEGIN:footer_line2_color*/#cecece/*END:footer_line2_color*/  title footer
+		
+		
+		- Background Color 1:/*BEGIN:footer_bg_color*/#000000/*END:footer_bg_color*/	 //  default
+		- Background Color 2:/*BEGIN:footer_bg2_color*/#000000/*END:footer_bg2_color*/ 	//block	
+		- Background image : /*BEGIN:footer_bgimage*/none/*END:footer_bgimage*/
+		- background-position:/*BEGIN:footer_bg_position*/0 0/*END:footer_bg_position*/
+		- background-repeat:/*BEGIN:footer_bg_repeat*/repeat/*END:footer_bg_repeat*/
+	
+	Button
+		- Button 1 // btn default  
+			 background-color: /*BEGIN:btn1_bg_color*/#fffffff/*END:btn1_bg_color*/;
+			color: /*BEGIN:btn1_text_color*/#000000/*END:btn1_text_color*/		;	
+			line: /*BEGIN:btn1_line_color*/#000000/*END:btn1_line_color*/		;	
+			font:/*BEGIN:btn1_font*/ 600 14px/1.35 Open Sans,Arial, Helvetica, sans-serif/*END:btn1_font*/;			 
+		- Button 2 // edit trang my account, hover add to cart, wishlist,compare
+			 background-color: /*BEGIN:btn2_bg_color*/#000000/*END:btn2_bg_color*/;
+			 color: /*BEGIN:btn2_text_color*/#fff/*END:btn2_text_color*/; 
+			 line: /*BEGIN:btn2_line_color*/#000000/*END:btn2_line_color*/;  
+			 font:/*BEGIN:btn2_font*/ 600 14px/1.35 Open Sans,Arial, Helvetica, sans-serif/*END:btn2_font*/;
+		- Button 3 //  update, continute,...
+			 background-color: /*BEGIN:btn3_bg_color*/#fffffff/*END:btn3_bg_color*/;
+			 color: /*BEGIN:btn3_text_color*/#b58719/*END:btn3_text_color*/;  
+			 line: /*BEGIN:btn3_line_color*/#b58719/*END:btn3_line_color*/;  
+			 font:/*BEGIN:btn3_font*/600 14px/1.35 Open Sans,Arial, Helvetica, sans-serif/*END:btn3_font*/;
+		- Button 4 //btn checkout, hover cua button 3.
+			 background-color: /*BEGIN:btn4_bg_color*/#b58719/*END:btn4_bg_color*/;
+			 color: /*BEGIN:btn4_text_color*/#fff/*END:btn4_text_color*/;  
+			 line: /*BEGIN:btn4_line_color*/#b58719/*END:btn4_line_color*/;  
+			 font:/*BEGIN:btn4_font*/600 14px/1.35 Open Sans,Arial, Helvetica, sans-serif/*END:btn4_font*/;
+		- Button 5 // quick shop
+			 background-color: /*BEGIN:btn5_bg_color*/transperant/*END:btn5_bg_color*/;
+			 color: /*BEGIN:btn5_text_color*/#fff/*END:btn5_text_color*/;  
+			 line: /*BEGIN:btn5_line_color*/#fff/*END:btn5_line_color*/;  
+			 font:/*BEGIN:btn5_font*/600 14px/1.35 Open Sans,Arial, Helvetica, sans-serif/*END:btn5_font*/;
+		- Button 6 // button hover slideshow
+			 background-color: /*BEGIN:btn6_bg_color*/#ffffff/*END:btn6_bg_color*/;
+			 color: /*BEGIN:btn6_text_color*/#000000/*END:btn6_text_color*/;  
+			 line: /*BEGIN:btn6_line_color*/#ffffff/*END:btn6_line_color*/;  
+			 font:/*BEGIN:btn6_font*/600 14px/1.35 Open Sans,Arial, Helvetica, sans-serif/*END:btn6_font*/;
+					
+		
+		
+		
+			
+/* box/wide */
+background-color:/*BEGIN:page_bgcolor*/#ffffff/*END:page_bgcolor*/;
+background-image: /*BEGIN:page_bgimage*/none/*END:page_bgimage*/;
+background-position: /*BEGIN:page_bgposition*/0 0/*END:page_bgposition*/;
+background-repeat: /*BEGIN:page_bgrepeat*/repeat/*END:page_bgrepeat*/;
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,172 @@
+.comment-by:before, .comment-count:before, .comment-user:before, .comment-time:before, .comment-button button.button span span:before,
+.em_blog-cat li.parent ul.level0 li a:hover,
+.view-mode .grid, .view-mode .list,
+.form-search button.button span span,
+#em_quickshop_handler span,.block-cart-top .block-content .block-title a:before,
+#nav li a.arrow,
+.icon, .inner_links .link_address:before, #back-top a:before, .em-promotion-banner li:before, .qty-increase button, .qty-decrease button, .qty-ctl .decrease, .qty-ctl .increase{background-image:url(../images/icons_watches.png);}
+.tp-caption{ z-index: 4; }
+.em-slideshow  .col-sm-24{padding-left:0; padding-right:0; }
+/*.form-search button.button span span{background:url(../images/icons_watches.png) -126px -687px no-repeat; }*/
+.form-search:hover button.button span span, 
+.form-search button.button:hover span span{background:url(../images/icons_watches.png) -126px -687px no-repeat; }
+.block-cart-top .block-title .cart-qty {text-transform: uppercase;}
+/*------------------------------------------------*/
+.area5-two-banner{ padding-top:20px;}
+.area5-two-banner ul > li{float:left; margin-bottom:10px;}
+.area5-three-banners {margin-top: 30px; margin-bottom: 15px; }
+.area5-three-banners ul > li{float:left; width:33%; text-align:center; margin-bottom: 20px;  }
+.area5-three-banners ul > li > a > img{width:auto; display: inline-block; }
+.area5-three-banners ul > li > h3{padding-top:3px; }
+.area5-three-banners ul > li > p{margin:0 auto; width:80%; }
+/*------------------------------------------------*/
+.emtabs div.desc {display: inline-block; margin-top: 20px; text-align: center; margin-bottom:2px; }
+.main-products-block div.desc > a{display:inline-block; }
+.main-products-block > div{border-left:none; }
+.emtabs .ui-slider-tabs-list-container{ text-align:center; }
+.emtabs .ui-slider-tabs-list-wrapper:before{content:"";width:100%; height:0; border-top:4px double; position:absolute; top:22px; left:0px;  }
+.main-products-block  .desc > a{border:2px solid; padding:10px 15px; text-transform: uppercase; }
+.em-tabs-content .tab-pane > div{padding-top: 20px;}
+.owl-theme .owl-controls .owl-buttons div{background-image:url(../images/icons_watches.png) !important;}
+.main-products-block > div .owl-theme .owl-controls{position: inherit; top: auto; right: auto;}
+.main-products-block > div .owl-theme .owl-controls .owl-buttons div{position: absolute; top: -415px; z-index: 2; display: none;}
+.main-products-block > div .owl-theme:hover .owl-controls .owl-buttons div {display: block;}
+.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-prev{left: 20px;}
+.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-next{right: 20px;}
+/*------------------------------------------------*/
+.erea16-newsletter{margin-top:20px; margin-bottom: 50px; border:10px solid;}
+.erea16-newsletter > div{margin-top:12px;}
+.erea16-newsletter .block .block-title strong span{text-transform: uppercase; font-weight: normal;}
+.erea16-newsletter .block-subscribe .block-title{margin-bottom: 25px;}
+.block-subscribe label{font-size: 100%;}
+
+/*------------------------------------------------*/
+#footer-information .link_content.last .inner_links{padding-right:0;}
+#footer-information .link_content.last  .inner_links .list-unstyled li{float:left; padding-right:9px; }
+.inner_links .list-unstyled li img{  -webkit-transition: all 1s ease-in-out;  -moz-transition: all .5s ease-in-out;  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; }
+.inner_links .list-unstyled li:hover img{border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%;   -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all .5s ease-in-out;  -o-transition: all .5s ease-in-out;  transition: all .5s ease-in-out;}
+/*------------------------------------------------*/
+.area10-four-banners ul li{float: left; padding-right:20px; margin-bottom:10px;}
+.area10-four-banners ul li.last{ padding-right:0px; }
+.area10-four-banners ul li:hover img{opacity: 0.6;
+-moz-opacity: 0.6;
+-webkit-opacity: 0.6;
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+opacity: 0.6;
+filter: alpha(opacity=60);
+transition: all .5s ease 0s;
+-moz-transition: all .5s ease 0s;
+-ms-transition: all .5s ease 0s;
+-webkit-transition: all .5s ease 0s; }
+/*------------------------------------------------*/
+.area16-four-banners ul > li{float:left; width:23.9%; margin-right:17px; border:1px solid; }
+.area16-four-banners ul > li.last{ margin-right:0px;}
+.area16-four-banners ul > li > div{ padding:10px 12px 17px 12px; }
+.area16-four-banners ul > li > div > a{text-transform:uppercase; font-size:80%; font-weight: bold; }
+.area16-four-banners ul > li > div > a:hover{text-decoration: underline; }
+.area16-four-banners ul liimg{transition: all .5s ease 0s; -moz-transition: all .5s ease 0s; -ms-transition: all .5s ease 0s; -webkit-transition: all .5s ease 0s; }
+.area16-four-banners ul li:hover img, .area5-two-banner ul > li:hover  img, .area5-three-banners ul li:hover{
+opacity: 0.6; -moz-opacity: 0.6; -webkit-opacity: 0.6; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+opacity: 0.6; filter: alpha(opacity=60);
+transition: all .5s ease 0s; -moz-transition: all .5s ease 0s; -ms-transition: all .5s ease 0s; -webkit-transition: all .5s ease 0s;
+}
+/*------------------------------------------------*/
+.erea16-newsletter {text-align:center; }
+.erea16-newsletter > div{width: 54%; margin: 35px auto; display: inline-block; }
+.erea16-newsletter > div > ul{display: inline-block; width:50%; margin-top:20px; }
+.erea16-newsletter > div > ul li a{border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%;}
+/*------------------------------------------------*/
+.area9-tweets {border:1px solid; margin-top:40px;  padding:13px 25px;}
+.area9-tweets .tweets-title{float:left; width:22%; text-transform: uppercase; padding-left: 62px; position: relative; margin-top: 27px; margin-bottom:10px;}
+.area9-tweets  .tweets-title:before {content: ""; width: 34px; height: 29px; background: url(../images/icons_watches.png) -149px -103px no-repeat; position: absolute; top: -2px; left: 0; }
+.tweets-status{float:right; width:77%; }
+.content-tweets{float:left; width:80%;}
+.tweets-status > a{float: right; text-transform: uppercase; border: 2px solid; padding: 8px 25px; margin-top: 20px; }
+
+/*------------------------------------------------*/
+.block-subscribe .form-subscribe-content .input-box{width: 100%; float: left; margin-bottom: 20px;}
+.block-subscribe.block .block-content .actions{clear: both;}
+/*------------------------------------------------*/
+.area09-brand{border-bottom:none; margin-bottom: 0; }
+.em-footer > .container:before{border-bottom-color: transparent!important;}
+.em-footer{position:relative; }
+/*.em-footer:before{content:""; width:191px; height:420px; position:absolute; bottom:0; left:0; background-image:url(../images/bkg-left.png ); z-index: 0;}
+.em-footer:after{content:""; width:191px; height:420px; position:absolute; bottom:0; right:0; background-image:url(../images/bkg-right.png ); z-index: 0;}*/
+.em-wide-custom .em-footer:before, .em-wide-custom .em-footer:after{display:none;}
+.area10-four-banners{margin-bottom:20px; }
+
+.em-box-custom .em-footer > .container, .em-wide-custom .em-footer{z-index:2; position:relative; }
+.area09-brand  .block_title{text-align:center; }
+.area09-brand .block_title h3{padding-left:25px; padding-right:25px;}
+.area09-brand .block_title:before{width:100%; border:0 none; }
+.area09-brand .owl-theme .owl-controls{top:10px; width:100%;}
+.area09-brand .owl-theme .owl-controls .owl-buttons div.owl-prev{position:absolute; left:0;}
+.area09-brand .owl-theme .owl-controls .owl-buttons div.owl-next{position:absolute; right:0;}
+.area17-promotion-banners li > p{margin-bottom: 0;}
+.em-promotion-banner li{min-height: 121px;}
+
+@-moz-document url-prefix() {
+.catsearch-dropdown span.current{padding-top: 13px;}
+}
+.catsearch-dropdown span.current{padding-top: 13px\9;}
+/* Portrait tablet to landscape and desktop resize2 */
+@media (min-width: 980px) and (max-width: 1199px) {	
+	.erea16-newsletter > div{width: 67%; }
+	.area16-four-banners ul > li{margin-right: 14px;}
+}
+@media (max-width: 990px){
+	
+}
+/* Portrait tablet to landscape and desktop resize1 */
+@media (min-width: 768px) and (max-width: 980px) {
+	.content-tweets{width:70%; }
+	.tweets-status{width:75%;}
+	.erea16-newsletter > div{width:85%; }
+	.area16-four-banners ul > li{width: 23.2%;}
+	.main-products-block > div .owl-theme .owl-controls .owl-buttons div{top: -450px;}
+	.header-top-right{width: 100%; margin-bottom: 5px!important;}
+	.header-container .toolbar-switch{float: none; vertical-align: top;}
+}
+/* Landscape phones and down */
+@media (max-width: 767px) {
+	.block-subscribe .form-subscribe-content .input-box{width: 63%;}
+	.area16-four-banners ul > li{width:47%; margin-bottom:15px;}
+	.area5-two-banner ul > li,	
+	.area5-two-banner ul > li img{width:100%;}
+	.area5-two-banner ul > li{margin-bottom:10px; }
+	.erea16-newsletter > div{width: 65%;}
+	.erea16-newsletter > div > ul{width: 84%;}
+	.tweets-status{width: 65%;}
+	.tweets-status > a{float:left; }
+	.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-prev{left: 30px;}
+	.main-products-block > div .owl-theme .owl-controls .owl-buttons .owl-next{right: 8px;}
+}
+@media (max-width: 580px){
+	.area16-four-banners ul > li,
+	.area5-three-banners ul > li, 
+	.main-products-block .products-grid li.item img{width:100%;}
+	.erea16-newsletter > div{width:90%;}
+	.erea16-newsletter > div > ul{width:88%;}
+	.block-subscribe .form-subscribe-content .input-box{width:100%; }
+	.block-subscribe.block .block-content .actions{margin-top:10px;}
+	.area10-four-banners ul li{padding-right:0; padding-bottom:10px;}
+
+}
+@media (max-width: 440px) {
+	
+}
+@media (max-width: 350px) {	
+	.main-products-block > div .owl-theme .owl-controls .owl-buttons div{top: -390px;}
+}
+@media only screen and (min-device-width:320px) and (max-device-width:767px){
+	.main-products-block > div .owl-theme .owl-controls .owl-buttons div{display: block;}
+}
+@media screen
+	and (min-device-width: 768px)
+	and (max-device-width: 1024px) {
+	.main-products-block > div .owl-theme .owl-controls .owl-buttons div{display: block;}
+}
+.col-sm-24.em-promotion-banner{ padding-left:0; padding-right:0;}
+.header-bottom-top > div.col-sm-24{ border-bottom:1px solid}
