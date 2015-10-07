@@ -1,0 +1,16 @@
+{2015/10/07 17:49:05} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest: array (
+  'Reference' => 'hnIOI22',
+  'SenderEmail' => 'roberta@piloti.com.br',
+)) - begin 
+{2015/10/07 17:49:07} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest: array (
+  'Reference' => 'hnIOI22',
+  'SenderEmail' => 'roberta@piloti.com.br',
+)) - end {1}A9B5E8328A8A515EE4128FBCE45A5274 
+{2015/10/07 18:56:27} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest: array (
+  'Reference' => 'hnIOI23',
+  'SenderEmail' => 'roberta@piloti.com.br',
+)) - begin 
+{2015/10/07 18:56:28} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest: array (
+  'Reference' => 'hnIOI23',
+  'SenderEmail' => 'roberta@piloti.com.br',
+)) - end {1}4E66524AC2C2096EE4982F81BA915ACA 
