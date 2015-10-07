@@ -41,6 +41,14 @@
 ?>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
 <?php echo $this->getChildHtml('after_body_start') ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.3&appId=1427279040897247";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="wrapper<?php if($box=='box' && $isMobile==false):?><?php echo ' em-box-custom';?><?php else: echo ' em-wide-custom'?><?php endif;?>">
     <?php echo $this->getChildHtml('global_notices') ?>
     <div class="page one-column">

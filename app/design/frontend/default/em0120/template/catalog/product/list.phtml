@@ -81,7 +81,14 @@
                             <?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?>
                         </a></h2>
                     <?php endif ?>                    
-                    <p class="sku"><?php echo $_product->getSku(); ?></p>
+                    <!-- <p class="sku"><?php echo $_product->getSku(); ?></p> -->
+                    <!--product description-->
+                    <?php if ($setting->getProductsList_ShowDesc()): ?>
+                        <div class="desc std">
+                            <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
+                        </div> 
+                    <?php endif ?> 
                     <!--show reviews-->
                     <?php if ($setting->getProductsList_ShowReviews()):?>
     					<?php if($_product->getRatingSummary()): ?>
@@ -111,21 +118,15 @@
 								<?php if ($this->helper('wishlist')->isAllow()) : ?>
 									<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><span class="icon icon-wishlist">icon</span><span class="text"><?php echo $this->__('Add to Wishlist') ?></span></a></li>
 								<?php endif; ?>
-								<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+								<?php /*if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
 									<li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare" title="<?php echo $this->__('Add to Compare') ?>"><span class="icon icon-compared">icon</span><span class="text"><?php echo $this->__('Add to Compare') ?></span></a></li>
-								<?php endif; ?>
+								<?php endif; */ ?>
 							</ul>
 						<?php endif ?>
 						</div>
 					</div>	
 					
-					<!--product description-->
-                    <?php if ($setting->getProductsList_ShowDesc()): ?>
-                        <div class="desc std">
-                            <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
-                        </div> 
-                    <?php endif ?> 
+					
                 </div>
             </div>
         </li>
@@ -178,7 +179,21 @@
 								<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
 							</a></h2>
 							<?php endif; ?>
-							<p class="sku"><?php echo $_product->getSku(); ?></p>
+							<!--product description-->
+							<?php if ($setting->getProductsGrid_ShowDesc()): ?>
+							<div class="desc std">
+								<?php 
+									$shortdes =  $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description');
+									if(strlen($shortdes)>100) { //dem ki tu chuoi $str, 80 la chieu dai muon quy dinh
+										$strCutTitle = substr($shortdes, 0, 57); //cat 80 ki tu dau
+										$shortdes = substr($strCutTitle, 0, strrpos($strCutTitle, ' '));
+										$shortdes = substr_replace($shortdes ,"...",-3);
+									}
+									echo $shortdes;
+								?>
+							</div>
+							<?php endif; ?>
+							<!-- <p class="sku"><?php echo $_product->getSku(); ?></p> -->
 							<!--show reviews-->
 							<?php if ($setting->getProductsGrid_ShowReviews()):?>
 								<?php if($_product->getRatingSummary()): ?>
@@ -209,28 +224,15 @@
 											<?php if ($this->helper('wishlist')->isAllow()) : ?>
 												<li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist" title="<?php echo $this->__('Add to Wishlist') ?>"><span class="icon icon-wishlist">icon</span><span class="text"><?php echo $this->__('Add to Wishlist') ?></span></a></li>
 											<?php endif; ?>
-											<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+											<?php /*if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
 												<li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare" title="<?php echo $this->__('Add to Compare') ?>"><span class="icon icon-compared">icon</span><span class="text"><?php echo $this->__('Add to Compare') ?></span></a></li>
-											<?php endif; ?>
+											<?php endif; */?>
 										</ul>
 									<?php endif; ?>
 								</div>
 							</div>
 							
-							<!--product description-->
-							<?php if ($setting->getProductsGrid_ShowDesc()): ?>
-							<div class="desc std">
-								<?php 
-									$shortdes =  $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description');
-									if(strlen($shortdes)>100) { //dem ki tu chuoi $str, 80 la chieu dai muon quy dinh
-										$strCutTitle = substr($shortdes, 0, 57); //cat 80 ki tu dau
-										$shortdes = substr($strCutTitle, 0, strrpos($strCutTitle, ' '));
-										$shortdes = substr_replace($shortdes ,"...",-3);
-									}
-									echo $shortdes;
-								?>
-							</div>
-							<?php endif; ?>
+							
 						</div>
 					</div>
 				</div>
