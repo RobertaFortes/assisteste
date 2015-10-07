@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+     <modules>
+        <Piloti_ImportWinetagData>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Piloti_ImportWinetagData>
+     </modules>
+</config>

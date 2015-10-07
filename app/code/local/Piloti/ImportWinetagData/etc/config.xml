@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <piloti_importwinetagdata>
+            <version>
+                0.1.0
+            </version>
+        </piloti_importwinetagdata>
+    </modules>
+    <global>
+        <helpers>
+            <piloti_importwinetagdata>
+                <class>Piloti_ImportWinetagData_Helper</class>
+            </piloti_importwinetagdata>
+        </helpers>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Piloti_ImportWinetagData after="Mage_Adminhtml">Piloti_ImportWinetagData</Piloti_ImportWinetagData>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

@@ -70,7 +70,7 @@ span.emmegamenu_icon,
 .menu-item-depth-0 > a span.emmegamenu_icon{ padding:0; margin-right:5px}
 .menu-item-depth-0 > a span,
 .menu-item-depth-0 > .em-catalog-navigation > li.level0 > a span{ 
-	padding:5px 27px 5px; 
+	padding:5px 15px 5px; 
 	min-height:20px; 
 	text-align:center;
 	display:inline-block;
@@ -225,7 +225,7 @@ li.menu-item-link.menu-item-depth-4{margin-bottom:9px;}
 @media (min-width: 768px){	 
 	.nav-container #nav li a.level-top, 
 	.hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0 > a, 
-	.hnav li.menu-item-depth-0 > a{padding:9px 0 9px;}
+	.hnav li.menu-item-depth-0 > a{/*padding:9px 0 25px;*/}
 	
 	.nav-container #nav li:hover a.level-top, 
 	.hnav .menu-item-depth-0 > .em-catalog-navigation > li.level0:hover > a, 

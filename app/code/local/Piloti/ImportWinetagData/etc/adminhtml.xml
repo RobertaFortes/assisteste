@@ -1,0 +1,15 @@
+<config>
+    <menu>
+        <piloti translate="title" module="piloti_importwinetagdata">
+            <title>Winetag</title>
+            <sort_order>100</sort_order>
+            <children>
+                <example>
+                    <title>Carregar Planilha</title>
+                    <sort_order>1</sort_order>
+                    <action>adminhtml/ImportWinetagData/index</action>
+                </example>
+            </children>
+        </piloti>
+    </menu>
+</config>
